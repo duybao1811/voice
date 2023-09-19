@@ -127,7 +127,7 @@ public class VoiceModule extends ReactContextBaseJavaModule implements Recogniti
      // Mute notification stream
     AudioManager mAudioManager = (AudioManager) this.reactContext.getSystemService(Context.AUDIO_SERVICE);
     mAudioManager.adjustStreamVolume(AudioManager.STREAM_NOTIFICATION, AudioManager.ADJUST_MUTE, 0);
-
+    mAudioManager.setParameters("noise_suppression=on");
     intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getLocale(this.locale));
     speech.startListening(intent);
   }
